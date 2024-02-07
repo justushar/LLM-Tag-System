@@ -1,7 +1,3 @@
----
-title: Tesseract Usage README
----
-
 # Tesseract Usage README
 
 ## Introduction
