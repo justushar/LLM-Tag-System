@@ -48,3 +48,9 @@ After installation. Clone the repository to read data from an Image using pytess
 ## Advanced Usage
 Tesseract provides various options and configurations for better text recognition. You can specify language, page segmentation mode, output format, and more. Refer to the ![Tesseract documentation](https://github.com/tesseract-ocr/tesseract?tab=readme-ov-file) for detailed information on advanced usage.
 
+## Tasks
+
+1. Conversion of PDFs to JPGs and labelling them in serial number.
+2. Extracting text (till section A) from JPG-1 using tesseract.
+3. (a) Using Pattern Matching or (b) Using spAcy or LangChain, to categorize the extracted text.  
+4. Conversion of extracted text to json. 
