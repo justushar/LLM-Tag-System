@@ -8,7 +8,7 @@ extracted_text = "END SEMESTER EXAMINATION : APRIL-MAY 2022 SOFTWARE ENGINEERING
 # Define the data payload
 data = {
     "model": "llama2",
-    "prompt": f"Categorise the extracted text; {extracted_text} in the following categories. Respond using JSON Containing only the following fields :Subject Code:,Subject Name:, Semester:,Time:, Marks:",
+    "prompt": f"Categorise the extracted text; {extracted_text} in the following categories. Respond using JSON Containing only the following fields :Subject Code:,Subject Name:, Semester:,Time:, Marks:. Semester is indicated by Month and Year",
     "format": "json",
     "stream": False
 }
