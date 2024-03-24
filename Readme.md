@@ -1,50 +1,49 @@
-# Tesseract Usage README
+# Tesseract-NER README
 
 ## Introduction
 
-Welcome to the Tesseract Usage guide! Tesseract is an open-source Optical Character Recognition (OCR) engine maintained by Google. It is capable of recognizing text within images, making it a valuable tool for various applications such as document processing, text extraction, and more.
+This code utilizes Tesseract and Natural Language Recognition (NER) to extract text from a PDF file, categorize it into specific categories, and then send the categorized text to an API.
 
-This README aims to provide you with a comprehensive overview of how to use Tesseract effectively.
+### Requirements
 
-## Installation
+- Python 3.9+
+- Tesseract OCR engine
+- Pillow(pdf2image) library
+- Pytesseract library
+- Requests library
+- Json library
+- `ollama` with `llama2` model for local LLM processing
 
-Before you can start using Tesseract, you need to install it on your system. Tesseract is available for installation on various platforms including Windows, macOS, and Linux. Here's how you can install it:
+### Prerequisites
 
-### Windows
+Before running the script, ensure the following steps are completed:
 
-```bash
-# Install Tesseract using Chocolatey
-choco install tesseract
-```
-otherwise it can be installed using the following link
-```
-https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w64-setup-5.3.3.20231005.exe
-```
-### MAC OS
-```
-brew install tesseract
-```
-### LINUX
-```
-sudo apt-get install tesseract-ocr
-```
-```
-Fedora: sudo dnf install tesseract-ocr
-```
-Installation can be checked using entering command tesseract in terminal.
+1. Move all PDFs to one root folder (e.g., `./All`) using `mkdir_2.sh`.
+2. Move the PDF files to directories having sequential numbers using `Mkdir.sh`.
+   
+   This ensures that the script can find and process the PDF files correctly.
 
-## Python Package
-Python offers Tesseract Wrapper as pytesseract. It can be installed using pip or conda.
-```
-pip install pytesseract
-```
-To perform operations on Images, we also require Pillow module.
-```
-pip install pillow
-```
-## First Steps
-After installation. Clone the repository to read data from an Image using pytesseract module by using test.py file.
+### Usage
 
-## Advanced Usage
-Tesseract provides various options and configurations for better text recognition. You can specify language, page segmentation mode, output format, and more. Refer to the ![Tesseract documentation](https://github.com/tesseract-ocr/tesseract?tab=readme-ov-file) for detailed information on advanced usage.
+1. **Modify the `root_folder` variable:** Replace it with the actual path to your root folder.
+2. **Modify the `stop_keywords` list:** If you want to halt OCR detection on specific keywords, add them to this list.
+3. Run the script: `python FINAL.py`
 
+### How the code works
+
+1. **PDF to Images:** The script converts the PDF file into images and extracts text using Tesseract.
+2. **Text Preprocessing:** The extracted text is processed to remove unnecessary characters and format it for the API.
+3. **Category Extraction:** The script identifies the stop keywords and removes the lines containing them from the extracted text.
+4. **API Submission:** The categorized text is sent to an API endpoint.
+5. **Subfolder Processing:** The script can process multiple subfolders containing PDF files.
+6. **JSON Processing:** The output from the API is returned as raw JSON and requires further processing. It is stored as `formatted_json` in the same directory as the script.
+
+This ensures that the user is aware that the output from the API requires further processing.
+
+### Note
+
+- The script uses the `llama2` model from `ollama` for enhanced text analysis and categorization.
+- This code is designed to process a specific PDF file and categorize it based on the provided stop keywords.
+- You may need to adjust the `stop_keywords` list based on the specific content of your PDF file.
+- The script assumes that the Tesseract and Pillow libraries are installed.
+- The script can be modified to process multiple PDF files in a directory.
