@@ -12,6 +12,7 @@ This code utilizes Tesseract and Natural Language Recognition (NER) to extract t
 - Pytesseract library
 - Requests library
 - Json library
+- `ollama` with `llama2` model for local LLM processing
 
 ### Prerequisites
 
@@ -41,7 +42,7 @@ This ensures that the user is aware that the output from the API requires furthe
 
 ### Note
 
-- The script uses the `llama2` model from Tesseract.
+- The script uses the `llama2` model from `ollama` for enhanced text analysis and categorization.
 - This code is designed to process a specific PDF file and categorize it based on the provided stop keywords.
 - You may need to adjust the `stop_keywords` list based on the specific content of your PDF file.
 - The script assumes that the Tesseract and Pillow libraries are installed.
