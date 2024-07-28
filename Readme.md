@@ -1,4 +1,4 @@
-# Tesseract-NER README
+# LLM-Tag-System README
 
 ## Introduction
 
